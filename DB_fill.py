@@ -38,7 +38,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS Users
 
 c.execute("""CREATE TABLE IF NOT EXISTS User_progress
 	(user_id INTEGER,
-	enc_word_id INTEGER,
+	word_id INTEGER,
 	word TEXT,
 	lang TEXT)""")
 
@@ -90,8 +90,8 @@ interface_ukr = [
 	"Професії",					# 41
 	"Сім'я та родина",			# 42
 	"Інші особи",				# 43
-	"Місця",					# 44
-	"Об'єкти",					# 45
+	"Напрямки",					# 44
+	"Місця",					# 45
 	"Транспорт",				# 46
 	"Предмети в домі",			# 47
 	"Посуд",					# 48
@@ -172,8 +172,8 @@ interface_eng = [
 	"Professions",					# 41
 	"Family and relatives",			# 42
 	"Other people",					# 43
-	"Places",						# 44
-	"Objects",						# 45
+	"Directions",					# 44
+	"Places",						# 45
 	"Transport",					# 46
 	"Objects in the house",			# 47
 	"Dishes",						# 48
@@ -238,9 +238,11 @@ interface_eng = [
 # 	for word, pos in zip(wordlist, ukr_pos_list):
 # 		c.execute("INSERT INTO English (word, part_of_speech) VALUES (?, ?)", (word, pos))
 
+# counter = 0
 # for x in range(3):
 # 	c.execute("""INSERT INTO Users (name, studied_lang, translation_lang, interface_lang, font_size, theme, current) VALUES
-# 	("User", "ukr", "eng", "eng", "64", "0", "0")""")
+# 	(?, "ukr", "eng", "eng", "64", "0", "0")""", ("User"+str(counter+1),))
+# 	counter += 1
 
 # counter = 0
 # for x in interface_ukr:
